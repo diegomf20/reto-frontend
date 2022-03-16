@@ -114,20 +114,20 @@ img{
 header{
     padding: 1rem 0;
 }
-.card-header{
-    padding: 1rem;
-    padding-bottom: 0.5rem;
-    text-align: center;
-}
 .card-img{
     position: relative;
     display: grid;
     overflow: hidden;
     align-items: center;
+    border: 1px solid #DBDBDB;
+    border-bottom: none;
 }
 @media only screen and (min-width: 768px) {
     .card-img{
         height: 190px;
+    }
+    .card-img img{
+        position: absolute;
     }
 }
 
