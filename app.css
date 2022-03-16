@@ -1,3 +1,6 @@
+:root{
+    --primary-color: #0C9FC1
+}
 *{
     margin: 0;
     padding: 0;
@@ -24,8 +27,9 @@ h1,h2,h3,h4,h5,h6{
     position: sticky;
     top: 0;
     padding: 1rem;
-    background-color: #0C9FC1;
+    background-color: var(--primary-color);
     color: #fff;
+    z-index: 999;
 }
 .seccion-info{
     display: grid;
@@ -42,9 +46,9 @@ h1,h2,h3,h4,h5,h6{
     display: inline-block;
     text-decoration: none;
     background-color: #fff;
-    color: #0C9FC1;
+    color: var(--primary-color);
     padding: 8px 16px;
-    border: 1px solid #0C9FC1;
+    border: 1px solid var(--primary-color);
     border-radius: 8px;
 }
 .titulo-seccion{
@@ -59,7 +63,7 @@ h1,h2,h3,h4,h5,h6{
     content: "";
     width: 50px;
     height: 2px;
-    background: #0C9FC1;
+    background: var(--primary-color);
     display: inline-block;
 }
 .titulo-seccion h2::before {
@@ -82,6 +86,9 @@ h1,h2,h3,h4,h5,h6{
     color: #484848;
     
 }
+.card-info .titulo{
+    cursor: pointer;
+}
 .card-fotter{
     color: #484848;
     text-align: center;
@@ -96,10 +103,15 @@ h1,h2,h3,h4,h5,h6{
     grid-gap: 16px;
     grid-template-columns: repeat(3, 1fr)
 }
+@media only screen and (max-width: 768px) {
+    .main-content{
+        grid-template-columns: repeat(1, 1fr)
+    }
+}
 .text-center{
     text-align: center;
 }
-.card img{
+img{
     width: 100%;
 }
 .mb{
@@ -108,15 +120,23 @@ h1,h2,h3,h4,h5,h6{
 header{
     padding: 1rem 0;
 }
-.card-header{
-    padding: 1rem;
-    padding-bottom: 0.5rem;
-    text-align: center;
-}
 .card-img{
     position: relative;
-    display: flex;
+    display: grid;
+    overflow: hidden;
+    align-items: center;
+    border: 1px solid #DBDBDB;
+    border-bottom: none;
 }
+@media only screen and (min-width: 768px) {
+    .card-img{
+        height: 190px;
+    }
+    .card-img img{
+        position: absolute;
+    }
+}
+
 .iniciales{
     position: absolute;
     top: 8px;
@@ -134,4 +154,43 @@ header{
 footer{
     text-align: center;
     padding: 2rem;
+}
+
+.modal .capa-oscura{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background-color: rgba(0,0,0,.5);
+}
+
+.modal.close{
+    display: none;
+}
+
+.modal-content{
+    position: fixed;
+    top: 150px;
+    left: calc(50% - 150px);
+    padding: 16px;
+    z-index: 9999;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+}
+.modal-content button{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
 }
