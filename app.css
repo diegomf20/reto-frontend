@@ -26,6 +26,7 @@ h1,h2,h3,h4,h5,h6{
     padding: 1rem;
     background-color: #0C9FC1;
     color: #fff;
+    z-index: 999;
 }
 .seccion-info{
     display: grid;
@@ -96,10 +97,15 @@ h1,h2,h3,h4,h5,h6{
     grid-gap: 16px;
     grid-template-columns: repeat(3, 1fr)
 }
+@media only screen and (max-width: 768px) {
+    .main-content{
+        grid-template-columns: repeat(1, 1fr)
+    }
+}
 .text-center{
     text-align: center;
 }
-.card img{
+img{
     width: 100%;
 }
 .mb{
@@ -108,15 +114,23 @@ h1,h2,h3,h4,h5,h6{
 header{
     padding: 1rem 0;
 }
-.card-header{
-    padding: 1rem;
-    padding-bottom: 0.5rem;
-    text-align: center;
-}
 .card-img{
     position: relative;
-    display: flex;
+    display: grid;
+    overflow: hidden;
+    align-items: center;
+    border: 1px solid #DBDBDB;
+    border-bottom: none;
 }
+@media only screen and (min-width: 768px) {
+    .card-img{
+        height: 190px;
+    }
+    .card-img img{
+        position: absolute;
+    }
+}
+
 .iniciales{
     position: absolute;
     top: 8px;
