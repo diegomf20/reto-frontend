@@ -5,14 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reto JS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="app.css">
     <script src="app.js"></script>
 </head>
 <body>
-    <nav class="navbar"></nav>
+    <nav class="navbar text-center">RETO FRONTEND</nav>
     <header>
+        <div class="container">
+            <div class="seccion-info mb">
+                <div class="seccion-info-izq">
+                    <h1>Consumo de APIs con Web Components</h1>
+                    <p>@autor: Diego Francisco Mendoza Frias.</p>
+                    <p class="mb">@API: https://restcountries.com</p> 
+                    <a class="btn" href="https://restcountries.com">Ver detalles del API</a>
+                </div>
+                <div class="seccion-info-der">
+                    <img src="./portada.png" alt="">
+                </div>
+            </div>
+            
+            <div class="titulo-seccion">
+                <h2>Paises</h2>
+            </div>
+        </div>
     </header>
     <main-content></main-content>
-    <footer></footer>
+    <div class="container mb">
+        <div class="main-content">
+            <div class="card">
+                <div class="card-img">
+                    <div class="iniciales">
+                        PER
+                    </div>
+                    <img src="https://flagcdn.com/w320/pe.png">
+                </div>
+                <div class="card-info">
+                    <h2 class="text-center">Perú</h2>
+                    <h5 class="text-center">Lima</h5>
+                </div>
+                <div class="card-fotter">
+                    <div>
+                        <h5>32.97 M</h5>
+                        <h4>Personas</h4>
+                    </div>
+                    <div>
+                        <h5>1.28 M</h5>
+                        <h4>km²</h4>
+                    </div>
+                    <div>
+                        <h5>UTC-05:00</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>2022 © Copyright diegomf20. All Rights Reserved</p>
+    </footer>
 </body>
 </html>
