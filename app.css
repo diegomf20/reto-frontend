@@ -9,6 +9,17 @@
 body{
     background-color: #fafafa;
 }
+h1,h2,h3,h4,h5,h6{
+    font-weight: 400;
+}
+.container{
+    display: block;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1050px;
+    padding: 0 1rem;
+}
 .navbar{
     position: sticky;
     top: 0;
@@ -58,15 +69,6 @@ body{
     margin: 0 0 10px 15px;
 }
 
-
-.container{
-    display: block;
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 1050px;
-    padding: 0 1rem;
-}
 .card{
     display: block;
     width: 100%;
@@ -129,9 +131,6 @@ header{
     background-color: rgba(0,0,0,.75);
 }
 
-h1,h2,h3,h4,h5,h6{
-    font-weight: 400;
-}
 footer{
     text-align: center;
     padding: 2rem;
