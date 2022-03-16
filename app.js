@@ -1,4 +1,5 @@
 class cardPais extends HTMLElement{
+    
     constructor(){
         super();
         this.nombre_pais;
@@ -14,8 +15,8 @@ class cardPais extends HTMLElement{
     static get observedAttributes(){
         return ['nombre_pais','capital','continente','bandera_pais','fifa','poblacion','area','timezones']
     }
+    
     attributeChangedCallback(attrib,oldV,newV){
-                    
         switch (attrib) {
             case 'fifa':                
                 this.fifa=newV;
@@ -73,7 +74,9 @@ class cardPais extends HTMLElement{
         `;
     }
 }
+
 window.customElements.define("card-pais",cardPais);
+
 class mainContent extends HTMLElement{
     constructor(){
         super();
@@ -120,9 +123,11 @@ class mainContent extends HTMLElement{
     
     }
 }
+
 window.customElements.define("main-content",mainContent);
 
 class modalComponent extends HTMLElement{
+    
     constructor(){
         super();
         this.continente;
@@ -132,8 +137,8 @@ class modalComponent extends HTMLElement{
     static get observedAttributes(){
         return ["continente","estado"]
     }
-    attributeChangedCallback(attrib,oldV,newV){
-                    
+    
+    attributeChangedCallback(attrib,oldV,newV){                
         switch (attrib) {
             case 'continente':                
                 this.continente=newV;
@@ -160,8 +165,10 @@ class modalComponent extends HTMLElement{
     
     }
 }
+
 window.customElements.define("modal-component",modalComponent);
 
+//interacción de Modal Continente
 function openModal(continente) {
     document.querySelector('modal-component')
         .setAttribute('continente',continente);
