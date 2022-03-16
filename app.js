@@ -3,6 +3,7 @@ class cardPais extends HTMLElement{
         super();
         this.nombre_pais;
         this.capital;
+        this.continente;
         this.bandera_pais;
         this.timezones;
         this.fifa;
@@ -11,7 +12,7 @@ class cardPais extends HTMLElement{
     }
 
     static get observedAttributes(){
-        return ['nombre_pais','capital','bandera_pais','fifa','poblacion','area','timezones']
+        return ['nombre_pais','capital','continente','bandera_pais','fifa','poblacion','area','timezones']
     }
     attributeChangedCallback(attrib,oldV,newV){
                     
@@ -24,6 +25,9 @@ class cardPais extends HTMLElement{
                 break;
             case 'capital':   
                 this.capital=newV;
+                break;
+            case 'continente':   
+                this.continente=newV;
                 break;
             case 'timezones':   
                 this.timezones=newV;
@@ -49,7 +53,7 @@ class cardPais extends HTMLElement{
                     <img src="${this.bandera_pais}">
                 </div>
                 <div class="card-info">
-                    <h2 class="text-center">${this.nombre_pais}</h2>
+                    <h2 class="text-center titulo" onclick="openModal('${this.continente}')">${this.nombre_pais}</h2>
                     <h5 class="text-center">${this.capital}</h5>
                 </div>
                 <div class="card-fotter">
@@ -78,6 +82,7 @@ class mainContent extends HTMLElement{
         .then(response => response.json())
         .then(
             (params) =>{
+                // this.paises=params;
                 this.paises=params.slice(3, 15);
                 this.connectedCallback(); 
             }
@@ -98,6 +103,7 @@ class mainContent extends HTMLElement{
                     fifa="${pais.fifa}" 
                     poblacion="${pais.population}" 
                     capital="${pais.capital}" 
+                    continente="${pais.region}" 
                     timezones="${pais.timezones[0]}" 
                     area="${pais.area}" 
                     nombre_pais="${pais.name.common}" 
@@ -115,3 +121,54 @@ class mainContent extends HTMLElement{
     }
 }
 window.customElements.define("main-content",mainContent);
+
+class modalComponent extends HTMLElement{
+    constructor(){
+        super();
+        this.continente;
+        this.estado="close";
+    }
+
+    static get observedAttributes(){
+        return ["continente","estado"]
+    }
+    attributeChangedCallback(attrib,oldV,newV){
+                    
+        switch (attrib) {
+            case 'continente':                
+                this.continente=newV;
+                break;
+            case 'estado':                
+                this.estado=newV;
+                break;
+        }
+        this.connectedCallback();
+    }
+
+    connectedCallback(){   
+        
+        this.innerHTML=`
+            <div class="modal ${this.estado}">
+                <div class="capa-oscura" onclick="closeModal()"></div>
+                <div class="modal-content">
+                    <button onclick="closeModal()">x</button>
+                    <b>CONTINENTE: </b> 
+                    ${this.continente}
+                </div>
+            </div>
+        `;
+    
+    }
+}
+window.customElements.define("modal-component",modalComponent);
+
+function openModal(continente) {
+    document.querySelector('modal-component')
+        .setAttribute('continente',continente);
+    document.querySelector('modal-component')
+        .setAttribute('estado','open');
+}
+function closeModal() {
+    document.querySelector('modal-component')
+        .setAttribute('estado','close');
+}
